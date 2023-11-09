@@ -8,7 +8,7 @@ echo "*** Starting to launch program ***"
 
 echo "Launching jar via hadoop jar command"
 
-    hadoop jar ozone-bulk-delete.jar /home/francois/francois.keytab francois majorque s3v 1 true
+    hadoop jar ozone-bulk-delete.jar $@
 
     sleep 2
 

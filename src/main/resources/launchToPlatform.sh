@@ -23,6 +23,8 @@
 # export SSH_KEY="-i <SSH_KEY>"
 
 export HOST=$1
+export ARGS="/home/francois/francois.keytab francois postal s3v 1 true"
+
 export USER=root
 export DEST_DIR="/root/ozonebulkdelete/"
 
@@ -39,7 +41,7 @@ scp ${SSH_KEY} target/ozone-bulk-delete-0.1.0.jar ${USER}@${HOST}:${DEST_DIR}/oz
 echo "Finished to send required files"
 
 echo "Launch script on platform to launch program properly"
-ssh ${SSH_KEY} ${USER}@${HOST} 'bash -s' < src/main/resources/launch.sh
+ssh ${SSH_KEY} ${USER}@${HOST} 'bash -s' < src/main/resources/launch.sh $ARGS
 echo "Program finished"
 
 

@@ -49,12 +49,12 @@ public class Main {
 
             // Deletion of keys
             volume.listBuckets(null).forEachRemaining(bucket -> {
-                    log.debug("Deleting everything in bucket: " + bucket.getName() +
-                        " in volume: " + volumeName);
+                    log.info("Checking keys in bucket: " + bucket.getName() + " inside volume: " + volumeName);
                     try {
                         bucket.listKeys(null).forEachRemaining(key -> {
                             try {
-                                if(key.getModificationTime().isBefore(nowMinusDays)) {
+                                if(key.getDataSize()!=0 && key.getModificationTime().isBefore(nowMinusDays)) {
+                                    log.info("Key " + key.getName() + " as last modified time is : " + key.getModificationTime().toString());
                                     if(!dryRun) {
                                         bucket.deleteKey(key.getName());
                                     }
