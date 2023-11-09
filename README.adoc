@@ -1,0 +1,7 @@
+= Ozone bulk delete
+
+Project to delete all old keys in a specified ozone volume. (It will go through all buckets).
+
+To launch it:
+
+        hadoop jar ozone-bulk-delete.jar <KEYTAB> <KEYTAB_USER> <OZONE_SERVICE_ID> <OZONE_VOLUME> <NUMBER_OF_DAYS> (<DRY_RUN>)
